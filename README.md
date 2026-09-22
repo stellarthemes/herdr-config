@@ -4,10 +4,14 @@ My [herdr](https://github.com/herdrdev/herdr) config: tmux-style keys for panes 
 
 ## Install
 
+Backs up your current config (if any) with a timestamp, then downloads this one:
+
 ```sh
-mkdir -p ~/.config/herdr
-cp config.toml ~/.config/herdr/config.toml
+f=~/.config/herdr/config.toml; mkdir -p ~/.config/herdr; [ -f "$f" ] && cp "$f" "$f.bak.$(date +%Y%m%d-%H%M%S)"
+curl -fsSL https://raw.githubusercontent.com/stellarthemes/herdr-config/main/config.toml -o "$f"
 ```
+
+To undo, copy the `.bak` file back over `config.toml`.
 
 ## Shortcuts
 
