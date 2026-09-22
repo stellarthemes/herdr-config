@@ -1,0 +1,43 @@
+onboarding = false
+
+[worktrees]
+directory = "~/wt"
+
+[[keys.command]]
+key = "prefix+i"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" && lazygit"
+description = "lazygit"
+width = "90%"
+height = "85%"
+
+[keys]
+prefix = "ctrl+backslash"
+# tmux-style: ctrl+arrow splits, shift+arrow moves focus, alt+arrow switches tab
+split_vertical   = ["prefix+v", "ctrl+left", "ctrl+right"]
+split_horizontal = ["prefix+minus", "ctrl+up", "ctrl+down"]
+focus_pane_left  = ["prefix+h", "shift+left"]
+focus_pane_right = ["prefix+l", "shift+right"]
+focus_pane_up    = ["prefix+k", "shift+up"]
+focus_pane_down  = ["prefix+j", "shift+down"]
+zoom             = ["prefix+z", "prefix+shift+z", "alt+e"]
+next_tab         = ["prefix+n", "alt+right"]
+previous_tab     = ["prefix+p", "alt+left"]
+# tmux last-window: prefix then \ jumps to the previous pane/tab (prefix twice is reserved by herdr)
+last_pane        = "prefix+backslash"
+
+[theme]
+# follow the terminal's light/dark setting
+auto_switch = true
+dark_name = "dracula"
+light_name = "solarized"
+
+# Brighter dim text in dark themes (sidebar agent labels, hints). Applies to every dark theme.
+[theme.custom.dark]
+overlay0 = "#9aa4d4"
+overlay1 = "#b8c0e4"
+
+[ui]
+# like tmux: new tab without asking for a name
+prompt_new_tab_name = false
+pane_gaps = false
